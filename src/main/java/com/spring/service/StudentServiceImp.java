@@ -11,23 +11,20 @@ import com.spring.entity.Student;
 import com.spring.exception.InvalidStudentException;
 
 @Service
-public class StudentServiceImp implements StudentService{
+public class StudentServiceImp implements StudentService {
 
 	@Autowired
 	StudentDao studentDao;
 
 	@Override
 	public Boolean saveStudent(Student student) {
-		
-		if(validateStudent(student))
-		{
-			return studentDao.saveStudent(student);	
-		}
-		else
-		{
+
+		if (validateStudent(student)) {
+			return studentDao.saveStudent(student);
+		} else {
 			return false;
 		}
-		
+
 	}
 
 	@Override
@@ -61,17 +58,14 @@ public class StudentServiceImp implements StudentService{
 
 	@Override
 	public Boolean deleteStudentById(int id) throws SQLException {
-		
+
 		return studentDao.deleteStudentById(id);
 	}
-	
-	private Boolean validateStudent(Student student)
-	{
-		if(student.getName().length()<=3)
-		{
+
+	private Boolean validateStudent(Student student) {
+		if (student.getName().length() <= 3) {
 			throw new InvalidStudentException("Invalid student");
-		}
-		else
+		} else
 			return true;
 	}
 }
