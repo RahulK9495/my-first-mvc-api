@@ -1,0 +1,4 @@
+com\spring\config\MyWebConfig.class
+com\spring\controller\StudentController.class
+com\spring\entity\Student.class
+com\spring\config\MyWebapplicationInitializer.class
